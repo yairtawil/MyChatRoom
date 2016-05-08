@@ -1,0 +1,6 @@
+c:\users\yairt\documents\visual studio 2015\Projects\MyChatRoom\MySocketClass\bin\Debug\MySocketClass.dll
+c:\users\yairt\documents\visual studio 2015\Projects\MyChatRoom\MySocketClass\bin\Debug\MySocketClass.pdb
+c:\users\yairt\documents\visual studio 2015\Projects\MyChatRoom\MySocketClass\bin\Debug\Microsoft.WebSockets.dll
+c:\users\yairt\documents\visual studio 2015\Projects\MyChatRoom\MySocketClass\obj\Debug\MySocketClass.csprojResolveAssemblyReference.cache
+c:\users\yairt\documents\visual studio 2015\Projects\MyChatRoom\MySocketClass\obj\Debug\MySocketClass.dll
+c:\users\yairt\documents\visual studio 2015\Projects\MyChatRoom\MySocketClass\obj\Debug\MySocketClass.pdb

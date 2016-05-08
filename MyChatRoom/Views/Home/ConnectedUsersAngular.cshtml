@@ -1,0 +1,75 @@
+﻿<style>
+    .modal {
+        display: block;
+        background:rgba(51, 51, 51, 0.68);
+    }
+</style>
+<script>
+    angular.module("MyChatRoom.services").service("data", function () {
+        var data = {};
+        data.currentUserId = function () {
+            return @Session["UserId"];
+        };
+        data.currentUserName = function () {
+            return "@Session["UserName"]";
+        };
+        return data;
+    });
+</script>
+<script src="~/scripts/anuglar/controllers/mainController.js"></script>
+<script src="~/scripts/anuglar/directives/scroll_to_end_directive.js"></script>
+
+<div ng-app="MyChatRoom" ng-controller="mainController" ng-init="init()">
+    <table class='table table-hover'>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>IsConnect</th>
+                <th>Messages</th>
+                <th>Chat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users" ng-if="user.Id !== data.currentUserId()" style="transition: 1s;" ng-style="user.connectedEvent && connectedEventStyle(user)">
+                <td>{{user.Id}}</td>
+                <td>{{user.Name}}</td>
+                <td><div ng-class="user.IsConnect? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'" ng-style="user.IsConnect ? {color: 'green'} : {color: 'red'}"></div></td>
+                <td ng-style="getUnReadMessage(user.Message) !== 0 && {fontWeight: 700}">{{getUnReadMessage(user.Message)}}</td>
+                <td><button class="btn btn-success" ng-click="openChat(user)" >Chat</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="modal" ng-if="chat_modal.show" role="dialog" ng-init="scrollToEnd.action = true">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" ng-click="closeChat()">&times;</button>
+                    <h4 class="modal-title">Chat with {{selected_user.Name}}</h4>
+                </div>
+                <div class="modal-body" style="height: 410px;">
+                    <ul class="list-group well" style="height:100%;overflow: auto;" scroll-to-end>
+                        <li class="list-group-item" ng-repeat="msg in selected_user.Message track by $index" ng-style="msg.from_id === data.currentUserId() ? {textAlign: 'right', color: 'green'} : {textAlign: 'left'}">
+                            {{msg.from_id}}: {{msg.text}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <form class="row" role="form" id="chatForm" style="direction:rtl;margin-top: 25px;" ng-submit="submitMsg()">
+                        <div class="form-group">
+                            <input ng-model="chatMsg.input" class="form-control" placeholder="Type your msg" ng-disabled="!selected_user.IsConnect"/>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success" type="submit" ng-disabled="!selected_user.IsConnect">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
