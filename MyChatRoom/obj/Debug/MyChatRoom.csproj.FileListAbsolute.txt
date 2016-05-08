@@ -1,0 +1,113 @@
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\ApplicationInsights.config
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\roslyn\csc.exe
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\roslyn\vbc.exe
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\roslyn\VBCSCompiler.exe
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\MyChatRoom.dll.config
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\MyChatRoom.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\MyChatRoom.pdb
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\EntityFramework.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\EntityFramework.SqlServer.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.AI.Web.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.ApplicationInsights.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.WebSockets.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\System.Web.Helpers.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\System.Web.Mvc.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\System.Web.Razor.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\System.Web.Webpages.Deployment.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\System.Web.Webpages.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\System.Web.Webpages.Razor.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\EntityFramework.xml
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\EntityFramework.SqlServer.xml
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.AI.Web.xml
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.ApplicationInsights.xml
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\System.Web.Razor.xml
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\System.Web.Webpages.xml
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\System.Web.Webpages.Deployment.xml
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\System.Web.Webpages.Razor.xml
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\System.Web.Helpers.xml
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\bin\System.Web.Mvc.xml
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\obj\Debug\MyChatRoom.dll
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\obj\Debug\MyChatRoom.pdb
+C:\Users\yairt\Documents\Visual Studio 2015\Projects\MyChatRoom\MyChatRoom\obj\Debug\MyChatRoom.csprojResolveAssemblyReference.cache
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\ApplicationInsights.config
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\roslyn\csc.exe
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\roslyn\vbc.exe
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\roslyn\VBCSCompiler.exe
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\MyChatRoom.dll.config
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\MyChatRoom.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\MyChatRoom.pdb
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\EntityFramework.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\EntityFramework.SqlServer.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.AI.Web.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.ApplicationInsights.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.WebSockets.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Helpers.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Mvc.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Razor.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Webpages.Deployment.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Webpages.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Webpages.Razor.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\EntityFramework.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\EntityFramework.SqlServer.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.AI.Web.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.ApplicationInsights.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Razor.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Webpages.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Webpages.Deployment.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Webpages.Razor.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Helpers.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Mvc.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\obj\Debug\MyChatRoom.csprojResolveAssemblyReference.cache
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\obj\Debug\MyChatRoom.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\obj\Debug\MyChatRoom.pdb
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Newtonsoft.Json.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Net.Http.Formatting.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Http.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Http.WebHost.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\Newtonsoft.Json.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Net.Http.Formatting.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Http.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Http.WebHost.xml
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Cors.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Http.Cors.dll
+C:\Users\yairt\Desktop\Learning\MyChatRoom\MyChatRoom\bin\System.Web.Http.Cors.xml

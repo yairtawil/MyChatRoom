@@ -1,0 +1,23 @@
+﻿<style>
+    .login-form{
+        width: 50%;
+        margin: 10% auto;
+        height: 240px;
+        min-width: 400px;
+    }
+</style>
+<form id="connectForm" class="well login-form" action="@Url.Action("Login", "Home")" method="post">
+    <h3 class="text-info text-left">Login</h3>
+    <div class="form-group">
+        <input id="Email" name="Email" class="form-control" type="email" placeholder="Enter username"/>
+    </div>
+    <div class="form-group">
+        <input id="Password" name="Password" type="password" class="form-control" placeholder="Enter password" />
+    </div>
+    <div id="errorMsg" class="form-group hide @ViewBag.showError">
+        <div class="text-left text-danger">Wrong username or password</div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Connect</button>
+    </div>
+</form>
