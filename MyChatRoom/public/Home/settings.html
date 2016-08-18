@@ -1,0 +1,41 @@
+﻿<fade-in class="settings" show="settingsService.action">
+    <div class="black-screen" ng-click="settingsService.action = false"></div>
+    <div class="main">
+        <div class="close" ng-click="settingsService.action = false">X</div>
+        <h3>Settings</h3>
+        <table class="table">
+            <tr>
+                <td>Connected</td>
+                <td><button-on-off disabled model="'true'"></button-on-off></td>
+            </tr>
+            <tr>
+                <td>Alerts</td>
+                <td><button-on-off change='settingsService.onChageSettings' model="settingsService.alerts"></button-on-off></td>
+            </tr>
+            <tr>
+                <td>Sound</td>
+                <td>
+                    <button-on-off change='settingsService.onChageSettings' model="settingsService.sound.active"></button-on-off>
+                </td>
+            </tr>
+            <tr>
+                <td>Sound volume</td>
+                <td>
+                    <div ui-slider ng-disabled="!settingsService.sound.active" min="0" max="10" ng-model="settingsService.sound.volume" ng-change="settingsService.onChageSettings();settingsService.setVoluemValue();settingsService.messageSoundPlay()"></div>
+                 </td>
+            </tr>
+            <tr>
+                <td>Sound type</td>
+                <td>
+                    <select
+                            ng-model="settingsService.sound.selected_id"
+                            ng-options="item.id as item.name for item in settingsService.sound.sources"
+                            ng-change="settingsService.onChageSettings();settingsService.setSrcValue();settingsService.messageSoundPlay()">
+                    </select>
+                </td>
+            </tr>
+        </table>
+ 
+        <button class="btn btn-save" ng-click="settingsService.action = false">Ok</button>
+    </div>
+</fade-in>

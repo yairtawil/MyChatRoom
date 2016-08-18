@@ -1,0 +1,26 @@
+﻿<fade-in class="create_group" show="create_group.action" style="z-index=1030">
+    <div class="black_screen" ng-click="closeCreateGroup()"></div>
+    <form role="form" ng-submit="create_group.id ? editGroup() : createGroup()">
+        <div class="close" ng-click="closeCreateGroup()">X</div>
+        <h4>{{create_group.id ? 'Edit' : 'Create'}} group {{create_group.id ? '(' + create_group.old_name + ')' : ''}}</h4>
+        <h5 ng-show="GroupAdmin()" style="color:red"><b>Admin</b></h5>
+        <div class="form-group">
+            <label for="name">Group Name:</label>
+            <input type="text" required class="form-control" id="name" ng-model="create_group.name">
+        </div>
+        <div class="form-group">
+            <label for="users">Users: ({{selectedUsersCount()}})</label>
+            <div class="form-control multiple-select" id="users" ng-style="!GroupAdmin() && {opacity: 0.5, cursor: 'not-allowed'}">
+                <div class="select-user">
+                    <input id="{{data.currentUserName()}}" disabled type="checkbox" checked />
+                    <label for="{{data.currentUserName()}}">{{data.currentUserName()}}</label>
+                </div>
+                <div class="select-user" ng-repeat="user in users">
+                    <input id="{{user.Name}}" type="checkbox" ng-required="!atLeastOneUser(create_group.users)" ng-model="create_group.users[user.Id]" ng-disabled="!GroupAdmin()" />
+                    <label for="{{user.Name}}">{{user.Name}}</label>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default">{{create_group.id ? 'Save' : 'Create'}}</button>
+    </form>
+</fade-in>

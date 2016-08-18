@@ -156,8 +156,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\Admin\index.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Home\create_group.css" />
+    <Content Include="Content\Home\index.css" />
+    <Content Include="Content\Home\settings.css" />
+    <Content Include="Content\Home\side-menu.css" />
+    <Content Include="Content\Home\simple-side-bar.css" />
+    <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -171,41 +177,60 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Content Include="scripts\ai.0.15.0-build58334.js" />
-    <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="public\Home\chat_modal.html" />
+    <Content Include="public\Home\create_group.html" />
+    <Content Include="public\Home\home.html" />
+    <Content Include="public\Home\item_menu_directive.html" />
+    <Content Include="public\Home\settings.html" />
     <Content Include="scripts\angular.min.js" />
-    <Content Include="scripts\anuglar\controllers\mainController.js" />
-    <Content Include="scripts\anuglar\directives\scroll_to_end_directive.js" />
+    <Content Include="scripts\anuglar\Admin\controllers\adminController.js" />
+    <Content Include="scripts\anuglar\Home\controllers\chat_modal_controller.js" />
+    <Content Include="scripts\anuglar\Home\controllers\settings_controller.js" />
+    <Content Include="scripts\anuglar\Home\controllers\create_group_controller.js" />
+    <Content Include="scripts\anuglar\Home\controllers\homeController.js" />
+    <Content Include="scripts\anuglar\Home\directives\fade_in_directive.js" />
+    <Content Include="scripts\anuglar\Home\directives\item_menu_directive.js" />
+    <Content Include="scripts\anuglar\Home\directives\scroll_to_end_directive.js" />
+    <Content Include="scripts\anuglar\Home\directives\tabs_carousel_directive.js" />
+    <Content Include="scripts\anuglar\Home\services\settings_service.js" />
     <Content Include="scripts\anuglar\main.js" />
-    <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <None Include="scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="scripts\home.js" />
-    <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\jquery-ui.min.js" />
     <Content Include="scripts\lodash.min.js" />
-    <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="scripts\slider.js" />
+    <Content Include="sounds\message\swish.mp3" />
+    <Content Include="sounds\message\apple.mp3" />
+    <Content Include="sounds\message\Power up.mp3" />
+    <Content Include="sounds\message\Stunned.mp3" />
+    <Content Include="sounds\message\Swin.mp3" />
+    <Content Include="sounds\message\Throw.mp3" />
+    <Content Include="sounds\message\Woo  hoo.mp3" />
     <Content Include="Web.config" />
-    <Content Include="Views\Home\ConnectedUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ChatRoomSocket.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Group.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GroupUsers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Message.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MessageRead.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
@@ -236,12 +261,19 @@
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\ConnectedUsersAngular.cshtml" />
+    <Content Include="Views\Home\index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -251,6 +283,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="public\Admin\" />
+    <Folder Include="scripts\anuglar\Admin\directives\" />
+    <Folder Include="scripts\anuglar\Admin\services\" />
+    <Folder Include="scripts\anuglar\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -14,21 +14,10 @@ namespace MyChatRoom.Models
     
     public partial class User
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            this.Message = new HashSet<Message>();
-            this.Message1 = new HashSet<Message>();
-        }
-    
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
         public bool IsConnect { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Message> Message { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Message> Message1 { get; set; }
+        public Nullable<int> Role { get; set; }
     }
 }

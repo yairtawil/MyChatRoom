@@ -1,6 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="MyChatRoomModelStoreContainer" CdmEntityContainer="MyChatRoomEntities1">
+    <EntitySetMapping Name="Group">
+      <EntityTypeMapping TypeName="MyChatRoomModel.Group">
+        <MappingFragment StoreEntitySet="Group">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupUsers">
+      <EntityTypeMapping TypeName="MyChatRoomModel.GroupUsers">
+        <MappingFragment StoreEntitySet="GroupUsers">
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Message">
       <EntityTypeMapping TypeName="MyChatRoomModel.Message">
         <MappingFragment StoreEntitySet="Message">
@@ -8,7 +26,18 @@
           <ScalarProperty Name="text" ColumnName="text" />
           <ScalarProperty Name="from_id" ColumnName="from_id" />
           <ScalarProperty Name="to_id" ColumnName="to_id" />
-          <ScalarProperty Name="read" ColumnName="read" />
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="len" ColumnName="len" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageRead">
+      <EntityTypeMapping TypeName="MyChatRoomModel.MessageRead">
+        <MappingFragment StoreEntitySet="MessageRead">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -19,6 +48,7 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="IsConnect" ColumnName="IsConnect" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

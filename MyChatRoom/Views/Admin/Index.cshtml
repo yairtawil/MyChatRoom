@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MyChatRoom.Models.User>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+<script>
+    angular.module("MyChatRoom.services").service("data", function () {
+        var data = {};
+        data.currentUserId = function () {
+            return @Session["UserId"];
+        };
+        data.currentUserName = function () {
+            return "@Session["UserName"]";
+        };
+        return data;
+    });
+</script>
+
+<div ng-app="MyChatRoomAdmin" ng-controller="adminController" ng-init="init()">
+    <h2>Admin</h2>
+    <a ng-click="create_modal.show= !create_modal.show">
+        {{create_modal.show ? 'Close' : 'Create New'}}
+    </a>
+    <div class="added-successfully alert alert-success" ng-show="create_modal.added_successfully">{{create_modal.email}} added successfully</div>
+    <form class="user_form" ng-if="create_modal.show" class="create-modal" ng-submit="createUser(create_modal.email, create_modal.password, create_modal.role)">
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="email" ng-model="create_modal.email" required>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" ng-model="create_modal.password">
+        </div>
+        <div class="form-group">
+            <label for="role">Role:</label>
+            <input type="number" max="1" min="0" class="form-control" id="role" ng-model="create_modal.role" required>
+        </div>
+        <button type="submit" class="btn btn-default">Create</button>
+    </form>
+    <table class="table">
+        <tr>
+            <th></th>
+
+            <th class="text-center"></th>
+        </tr>
+
+
+        <tr ng-repeat="user in users">
+            <td>
+                <input class="radio" type="radio" ng-model="radio.selectedUser" ng-value="user.Id" />
+            </td>
+            <td>
+                <form class="user_form" ng-submit="save(user)">
+                    <input class="form-control my_inputs" type="email" ng-model=user.Name ng-disabled="radio.selectedUser !== user.Id" ng-change="onChange(user, 'Name')" />
+                    <input class="form-control my_inputs" type="number" ng-model="user.Role" ng-disabled="radio.selectedUser !== user.Id" ng-change="onChange(user, 'Role')" max="1" min="0"/>
+
+                    <input class="btn btn-success my_inputs" value="Save" type="submit" ng-disabled="radio.selectedUser !== user.Id" />
+                    <input class="btn btn-danger my_inputs" value="Delete" type="button" ng-click="deleteUser(user.Id, user.Name)" ng-disabled="radio.selectedUser !== user.Id" />
+                </form>
+            </td>
+
+        </tr>
+
+
+    </table>
+</div>

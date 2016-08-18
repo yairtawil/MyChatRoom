@@ -1,0 +1,11 @@
+﻿.side-menu{
+    position:fixed;
+}
+.side-menu .dropdown-menu li {
+    border-bottom: 1px solid #E5E5E5;
+    cursor:pointer;
+    min-height:35px
+}
+.side-menu .dropdown-menu li:last-child {
+    border:none;
+}

@@ -5,43 +5,82 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Chat Room</title>
+
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/Home/index.css" rel="stylesheet" />
+    <link href="~/Content/Admin/index.css" rel="stylesheet" />
+    <link href="~/Content/Home/simple-side-bar.css" rel="stylesheet" />
+    <link href="~/Content/Home/create_group.css" rel="stylesheet" />
+    <link href="~/Content/Home/settings.css" rel="stylesheet" />
+    <link href="~/Content/Home/side-menu.css" rel="stylesheet" />
+
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/scripts/angular.min.js"></script>
-    <script src="~/scripts/anuglar/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.0/angular-ui-router.min.js"></script>
     <script src="~/scripts/lodash.min.js"></script>
+
+
+    <script src="~/scripts/anuglar/main.js"></script>
+    <script src="~/scripts/anuglar/Admin/controllers/adminController.js"></script>
+    <script src="~/scripts/anuglar/Home/controllers/homeController.js"></script>
+    <script src="~/scripts/anuglar/Home/controllers/chat_modal_controller.js"></script>
+    <script src="~/scripts/anuglar/Home/controllers/create_group_controller.js"></script>
+    <script src="~/scripts/anuglar/Home/directives/scroll_to_end_directive.js"></script>
+    <script src="~/scripts/anuglar/Home/directives/tabs_carousel_directive.js"></script>
+    <script src="~/scripts/anuglar/Home/directives/fade_in_directive.js"></script>
+    <script src="~/scripts/anuglar/Home/services/settings_service.js"></script>
+    <script src="~/scripts/anuglar/Home/directives/item_menu_directive.js"></script>
+    <script src="~/scripts/anuglar/Home/directives/button_on_off_directive.js"></script>
+    <script src="~/scripts/jquery-ui.min.js"></script>
+    <script src="~/scripts/slider.js"></script>
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 @Html.ActionLink("My Chat Room", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                @if (Request.Url.ToString() != "http://localhost:58250/Admin")
+                {
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                }
                 @if (Session["Username"] != null)
                 {
-                    <div class="navbar-text text-right">@Session["Username"]</div>
-                    @Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "navbar-brand" });
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class=""></span>@Session["Username"]<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">@Session["Username"]</li>
+                                <li role="separator" class="divider"></li>
+                                @if (Convert.ToInt32(Session["Role"]) == 1)
+                                {
+                                    <li>@Html.ActionLink("Admin", "Index", "Admin", new { area = "" }, new { @style = "background: darkred; color: white;" })</li>
+                                }
+                                <li><a href="#">Accout</a></li>
+                                <li><a id="settings-trigger" href="#">Settings</a></li>
+
+                                <li role="separator" class="divider"></li>
+                                <li>@Html.ActionLink("Logout", "Logout", "Login", new { area = "" }, new { @class = "" })</li>
+
+                            </ul>
+                        </li>
+                    </ul>
                 }
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"></ul>
-            </div>
         </div>
-    </div>
+    </nav>
 
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My Chat Room Application</p>
-        </footer>
     </div>
 
 

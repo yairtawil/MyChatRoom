@@ -15,8 +15,8 @@ namespace MyChatRoom
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{showError}",
-                defaults: new { controller = "Home", action = "Index", showError = "" }
+                url: "{controller}/{action}",
+                defaults: new { controller = "Login", action = "Index"}
             );
         }
     }

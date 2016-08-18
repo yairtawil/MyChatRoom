@@ -1,0 +1,22 @@
+﻿.form-control.my_inputs {
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.btn.my_inputs {
+    margin: auto;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.user_form {
+    width: 50%;
+}
+
+.create-modal {
+}
+
+.added-successfully {
+    position: fixed;
+    bottom: 0;
+}

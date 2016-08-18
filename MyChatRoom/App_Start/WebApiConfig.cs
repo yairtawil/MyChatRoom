@@ -17,7 +17,7 @@ namespace MyChatRoom
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{my_id}/{chatbox_id}",
+                routeTemplate: "api/{controller}/{role}/{my_id}/{chatbox_id}",
                 defaults: new { chatbox_id = RouteParameter.Optional }
             );
         }

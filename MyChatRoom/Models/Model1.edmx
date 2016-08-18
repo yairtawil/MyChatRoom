@@ -4,7 +4,23 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MyChatRoomModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MyChatRoomModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="GroupUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="IsAdmin" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Message">
           <Key>
             <PropertyRef Name="Id" />
@@ -13,58 +29,55 @@
           <Property Name="text" Type="nvarchar(max)" />
           <Property Name="from_id" Type="int" />
           <Property Name="to_id" Type="int" />
-          <Property Name="read" Type="bit" Nullable="false" />
+          <Property Name="group_id" Type="int" />
+          <Property Name="len" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreateAt" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="MessageRead">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MessageId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="20" />
           <Property Name="Password" Type="nchar" MaxLength="20" />
           <Property Name="IsConnect" Type="bit" Nullable="false" />
+          <Property Name="Role" Type="int" />
         </EntityType>
-        <Association Name="FK__Message__from_id__1CF15040">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Message" Type="Self.Message" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Message">
-              <PropertyRef Name="from_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Message__to_id__1DE57479">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Message" Type="Self.Message" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Message">
-              <PropertyRef Name="to_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="MyChatRoomModelStoreContainer">
+          <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupUsers" EntityType="Self.GroupUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MessageRead" EntityType="Self.MessageRead" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Message__from_id__1CF15040" Association="Self.FK__Message__from_id__1CF15040">
-            <End Role="User" EntitySet="User" />
-            <End Role="Message" EntitySet="Message" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Message__to_id__1DE57479" Association="Self.FK__Message__to_id__1DE57479">
-            <End Role="User" EntitySet="User" />
-            <End Role="Message" EntitySet="Message" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MyChatRoomModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GroupUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+        </EntityType>
         <EntityType Name="Message">
           <Key>
             <PropertyRef Name="Id" />
@@ -73,56 +86,34 @@
           <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="from_id" Type="Int32" />
           <Property Name="to_id" Type="Int32" />
-          <Property Name="read" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Message__from_id__1CF15040" FromRole="Message" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="Self.FK__Message__to_id__1DE57479" FromRole="Message" ToRole="User" />
+          <Property Name="group_id" Type="Int32" />
+          <Property Name="len" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CreateAt" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="MessageRead">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MessageId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="IsConnect" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Message" Relationship="Self.FK__Message__from_id__1CF15040" FromRole="User" ToRole="Message" />
-          <NavigationProperty Name="Message1" Relationship="Self.FK__Message__to_id__1DE57479" FromRole="User" ToRole="Message" />
+          <Property Name="Role" Type="Int32" />
         </EntityType>
-        <Association Name="FK__Message__from_id__1CF15040">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Message" Type="Self.Message" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Message">
-              <PropertyRef Name="from_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Message__to_id__1DE57479">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Message" Type="Self.Message" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Message">
-              <PropertyRef Name="to_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="MyChatRoomEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Group" EntityType="Self.Group" />
+          <EntitySet Name="GroupUsers" EntityType="Self.GroupUsers" />
           <EntitySet Name="Message" EntityType="Self.Message" />
+          <EntitySet Name="MessageRead" EntityType="Self.MessageRead" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK__Message__from_id__1CF15040" Association="Self.FK__Message__from_id__1CF15040">
-            <End Role="User" EntitySet="User" />
-            <End Role="Message" EntitySet="Message" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Message__to_id__1DE57479" Association="Self.FK__Message__to_id__1DE57479">
-            <End Role="User" EntitySet="User" />
-            <End Role="Message" EntitySet="Message" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -130,6 +121,24 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MyChatRoomModelStoreContainer" CdmEntityContainer="MyChatRoomEntities1">
+          <EntitySetMapping Name="Group">
+            <EntityTypeMapping TypeName="MyChatRoomModel.Group">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupUsers">
+            <EntityTypeMapping TypeName="MyChatRoomModel.GroupUsers">
+              <MappingFragment StoreEntitySet="GroupUsers">
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Message">
             <EntityTypeMapping TypeName="MyChatRoomModel.Message">
               <MappingFragment StoreEntitySet="Message">
@@ -137,7 +146,18 @@
                 <ScalarProperty Name="text" ColumnName="text" />
                 <ScalarProperty Name="from_id" ColumnName="from_id" />
                 <ScalarProperty Name="to_id" ColumnName="to_id" />
-                <ScalarProperty Name="read" ColumnName="read" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="len" ColumnName="len" />
+                <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessageRead">
+            <EntityTypeMapping TypeName="MyChatRoomModel.MessageRead">
+              <MappingFragment StoreEntitySet="MessageRead">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -148,6 +168,7 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="IsConnect" ColumnName="IsConnect" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

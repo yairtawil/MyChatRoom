@@ -1,0 +1,10 @@
+﻿<div ng-show="item_menu.show">
+    <div class="side-menu" ng-style="{'background-color': 'green', top: item_menu.y, left:item_menu.x}">
+        <ul class="dropdown-menu" style="display:block;">
+            <li class="dropdown-header">{{item_menu.selected_user.Name}}</li>
+            <li ng-repeat="item in item_menu.items[item_menu.type]">
+                <a ng-click="item.action(item_menu.selected_user, item_menu.type)"><span class="{{item.icon}} g-margin-right"></span>{{item.name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

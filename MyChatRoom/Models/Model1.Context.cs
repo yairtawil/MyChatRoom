@@ -25,7 +25,10 @@ namespace MyChatRoom.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Group> Group { get; set; }
+        public virtual DbSet<GroupUsers> GroupUsers { get; set; }
         public virtual DbSet<Message> Message { get; set; }
+        public virtual DbSet<MessageRead> MessageRead { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

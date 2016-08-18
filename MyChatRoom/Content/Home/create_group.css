@@ -1,0 +1,27 @@
+﻿.create_group .black_screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.54);
+    top: 0;
+    left: 0;
+}
+.create_group form{
+      width: 50%;
+    left: 25%;
+    top: calc(50% - 210px);
+    height: 420px;
+    background: #F5F5F5;
+    position: absolute;
+    padding: 3%;
+}
+.create_group form h4{
+    color:rgb(16, 107, 187);
+}
+.form-control.multiple-select{
+    height:120px;
+    overflow:auto;
+}
+.select-user{
+    padding-left:20px;
+}

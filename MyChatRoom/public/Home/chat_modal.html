@@ -1,0 +1,64 @@
+﻿<div class="row">
+    <div class="groupusers" ng-if="selected_user.type==='groups'" ng-repeat="user in chatUsers()" ng-click="openChat(user, 'users')">
+        <u><b>{{user.Name}}</b></u>{{$last ? '.' : ' ,'}}
+    </div>
+</div>
+
+<div class="load_more list-group-item text-center" ng-class="{'show_load_more': selected_user.load_more && !selected_user.no_more_data}" ng-click="selected_user.load_more && !selected_user.no_more_data ? getUserMessages() : false;">Load more</div>
+<ul class="list-group well chat-box" scroll-to-end>
+    <li class="list-group-item base {{msg.len === 'HEB' ? 'HEB' : 'ENG'}}"
+        ng-class="{'from_me': msg.from_id === data.currentUserId(), 'from_friend':msg.from_id !== data.currentUserId(), 'unread': !allreadMsg(msg), 'read': allreadMsg(msg), 'any_read': anyReadMsg(msg)}"
+        ng-repeat="msg in selected_user.Message track by $index"
+        ng-style="msg.disappear && {opacity: 0, transition:'none'} || msg.transition && {transition:'0.2s'}">
+        <h6 class="list-group-item-heading">{{msg.CreateAtParse}}</h6>
+        <h5 class="list-group-item-heading">{{getUserNameById(msg.from_id, 'users')}}</h5>
+        <h4 class="list-group-item-text">
+
+            <span ng-click="selected_msg.message = msg" class="glyphicon in-out-gly" ng-class="msg.from_id === data.currentUserId() ? 'glyphicon-circle-arrow-right' : 'glyphicon-circle-arrow-left'">
+                <!--<div class="show_read_info">
+                    <div ng-repeat="read_id in getMsgToArray(msg)">
+                        <span class="{{isRead(msg, read_id) ? 'glyphicon glyphicon-ok-sign' : 'glyphicon glyphicon-remove-sign'}} g-margin-right"></span>{{getUserNameById(read_id, 'users')}}
+                    </div>
+                </div>-->
+            </span>
+
+            <p ng-repeat="line in splitToLines(msg.text) track by $index">{{line}}</p>
+        </h4>
+    </li>
+</ul>
+
+<div class="modal-footer my-footer">
+    <div class="text-center" ng-style="selected_user.Typing.active ? {opacity: 1} : {opacity: 0}">{{selected_user.Typing.WhoTypingName}}Typing...</div>
+
+    <form class="row" role="form" id="chatForm" style="margin-top: 25px;" ng-submit="submitMsg()">
+        <div class="form-group" ng-style="chatMsg.len === 'HEB' ? {direction: 'rtl',textAlign: 'right'} : {direction: 'ltr',textAlign: 'left'}">
+            <textarea class="form-control" style="height:100px" ng-model="chatMsg.input" ng-if="chatMsg.types[chatMsg.type]==='Textarea'" ng-style="chatMsg.len === 'HEB' ? {direction: 'rtl',textAlign: 'right'} : {direction: 'ltr',textAlign: 'left'}" ng-keydown="typing($event);keydown($event)" ng-keyup="keyup($event)" placeholder="Type your msg" />
+            <input class="form-control" ng-model="chatMsg.input" ng-if="chatMsg.types[chatMsg.type]==='Input'" ng-keydown="typing($event);keydown($event)" placeholder="Type your msg" ng-style="chatMsg.len === 'HEB' ? {direction: 'rtl',textAlign: 'right'} : {direction: 'ltr',textAlign: 'left'}" ng-keyup="keyup($event)" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success my-send-btn" type="submit">Send</button>
+            <button type="button" class="btn btn-primary" ng-click="chatMsg.type = 1 - chatMsg.type">{{chatMsg.types[1 - chatMsg.type]}}</button>
+            <button class="btn" ng-style="chatMsg.len === 'HEB' && {border: 'solid 1px rgb(16, 107, 187)'}" ng-click="chatMsg.len = 'HEB'">HEB</button>
+            <button class="btn" ng-style="chatMsg.len === 'ENG' && {border: 'solid 1px rgb(16, 107, 187)'}" ng-click="chatMsg.len = 'ENG'">ENG</button>
+        </div>
+    </form>
+    <p class="shortcut">*** Ctrl + Shift to change direction</p>
+    <p class="shortcut" ng-show="chatMsg.types[chatMsg.type]==='Textarea'">*** Ctrl + Enter to send message</p>
+</div>
+
+<fade-in show="selected_msg.message">
+    <div class="black-screen" ng-click="selected_msg.message = null"></div>
+    <div class="message-details">
+        <div class="close" ng-click="selected_msg.message = null">X</div>
+        <h4>Message details</h4>
+        <hr />
+        <p><b>Sent at:</b>{{selected_msg.message.CreateAtParse}}</p>
+        <p><b>From:</b>{{getUserNameById(selected_msg.message.from_id, 'users')}}</p>
+        <p><b>To:</b>{{getUserNameById(selected_msg.message.group_id ? selected_msg.message.group_id : selected_msg.message.to_id, selected_msg.message.group_id ? 'groups' : 'users')}}</p>
+        <p><b>Text:</b>{{selected_msg.message.text}}</p>
+        <p><b>Read by:</b></p>
+        <p ng-if="selected_msg.message" ng-repeat="read_id in getMsgToArray(selected_msg.message)">
+            <span class="{{isRead(selected_msg.message, read_id) ? 'glyphicon glyphicon-ok-sign' : 'glyphicon glyphicon-remove-sign'}} g-margin-right"></span>{{getUserNameById(read_id, 'users')}}
+        </p>
+    </div>
+</fade-in>

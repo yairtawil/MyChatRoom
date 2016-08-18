@@ -1,0 +1,65 @@
+﻿  <!-- Sidebar -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li id="users_list">
+                <a data-toggle="collapse" data-target="#users">Users</a>
+                <ul class="collapse" id="users">
+                    <li ng-repeat="user in users" ng-style="user.connectedEvent && connectedEventStyle(user.IsConnect)" item-menu="{'selected_user': user, type:'users'}">
+                        <a class="show-chat-btn"  ng-click="openChat(user, 'users')" ng-class="{'is_selected' : selected_user.type==='users' && selected_user.Id===user.Id}">
+                            <div class="g-margin-right" ng-class="user.IsConnect? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'"></div>
+                            {{user.Name}}
+                            <span class="not-read-circle">{{getUnReadMessage(user.Message)}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li id="groups_list">
+                <a data-toggle="collapse" data-target="#groups">Groups</a>
+                <ul class="collapse" id="groups">
+                    <li ng-click="createditGroup()" class="create-new-group"><span class="glyphicon glyphicon-plus-sign g-margin-right"></span>Create group</li>
+                    <li ng-repeat="group in groups" ng-style="group.connectedEvent && connectedEventStyle(true)" item-menu="{'selected_user': group, type:'groups'}">
+
+                        <a class="show-chat-btn" ng-click="openChat(group, 'groups')" ng-class="{'is_selected' : selected_user.type==='groups' && selected_user.Id===group.Id}">
+                            <span class="admin" ng-show="group.AdminId === data.currentUserId()">A</span>
+                            {{group.Name}}
+                            <span class="not-read-circle">{{getUnReadMessage(group.Message)}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <button ng-disabled="!openTabs.enableArrowLeft" class="btn glyphicon glyphicon-chevron-left arrow-tabs-left" ng-click="openTabs.scrollLeft()"></button>
+            <ul class="nav nav-tabs tabs-bar" tabs-carousel>
+                <li class="tab-li" ng-repeat="tab in openTabs.tabs track by $index" ng-class="{'active':openTabs.activeIndex === $index}" ng-click="openChatFromTab(tab)">
+                    <a href="#">{{getUserNameById(tab.Id, tab.type)}}</a>
+                    <span class="close close-tab" ng-click="closeChatTab($index)">X</span>
+                </li>
+            </ul>
+            <button ng-disabled="!openTabs.enableArrowRight" class="btn glyphicon glyphicon-chevron-right arrow-tabs-right" ng-click="openTabs.scrollRight()"></button>
+
+            <div ng-include="'../../public/Home/chat_modal.html'" ng-controller="chatModalController" ng-if="selected_user"></div>
+
+        </div>
+    </div>
+</div>
+
+
+<div ng-repeat="alert in alerts track by $index" ng-if="settingsService.alerts">
+    <div class="alert" ng-class="alert.type" ng-style="{bottom: $index * 66, opacity: alert.disappear ? 0 : 1}">
+        <button class="btn btn-info">Go</button> <strong>{{alert.from}}</strong> {{alert.text}}
+    </div>
+</div>
+
+<div ng-include="'../../public/Home/create_group.html'" ng-controller="createGroupController"></div>
+
+<div ng-include="'../../public/Home/settings.html'"></div>
+
+<div ng-include="'../../public/Home/item_menu_directive.html'"></div>
